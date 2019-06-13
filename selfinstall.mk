@@ -77,7 +77,7 @@ $(SELFINSTALL_CACHE_IMAGE): $(SELFINSTALL_DIR)/cache.img
 #
 # Android Self-Installation
 #
-$(PRODUCT_OUT)/selfinstall-$(TARGET_DEVICE).img: \
+selfinstall-$(TARGET_DEVICE).img: \
 	$(BOOTLOADER_MESSAGE) \
 	$(INSTALLED_RECOVERYIMAGE_TARGET) \
 	build_bootloader \
@@ -96,4 +96,4 @@ $(PRODUCT_OUT)/selfinstall-$(TARGET_DEVICE).img: \
 	@echo "Done."
 
 .PHONY: selfinstall
-selfinstall: $(PRODUCT_OUT)/selfinstall-$(TARGET_DEVICE).img
+selfinstall: selfinstall-$(TARGET_DEVICE).img
