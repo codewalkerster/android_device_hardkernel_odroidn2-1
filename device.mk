@@ -125,3 +125,6 @@ PRODUCT_COPY_FILES += \
     device/hardkernel/odroidn2/files/makebootini:vendor/bin/makebootini \
     device/hardkernel/odroidn2/files/default.prop.template:vendor/etc/default.prop.template \
     device/hardkernel/odroidn2/files/makedefaultprop:vendor/bin/makedefaultprop
+
+# Inherit secuflag config
+$(call inherit-product, vendor/secuflag/common.mk)
