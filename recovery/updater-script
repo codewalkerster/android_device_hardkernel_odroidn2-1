@@ -40,6 +40,13 @@ run_program("/sbin/mkfs.vfat", "-n", "VFAT", "/dev/block/odm");
 
 set_progress(0.9000);
 
+mount("ext4", "EMMC", "/dev/block/system", "/system");
+if
+  sha1_check(read_file("/system/etc/preferred-apps/google.xml")) != ""
+then
+  run_program("/sbin/rm", "-rf", "/system/priv-app/PackageInstaller/");
+endif;
+
 ui_print("   boot.ini is copying to FAT partition");
 mount("vfat", "EMMC", "/dev/block/odm", "/sdcard");
 mount("ext4", "EMMC", "/dev/block/vendor", "/vendor");
